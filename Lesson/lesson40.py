@@ -1,19 +1,10 @@
 from random import randint
 
-name = input("请输入你的名字：")
-
 f = open('game.txt')
-lines = f.readlines()
-scores = {}
-for i in lines:
-    s = i.split()
-    scores[s[0]] = s[1:]
+score = f.read().split()
+print(score)
 f.close();
 
-print(scores)
-score = scores.get(name)
-if score is None:
-    score = [0, 0, 0]
 
 game_times = int(score[0])      # 总游戏轮数
 min_times = int(score[1])       # 最快猜出的轮数
@@ -25,7 +16,7 @@ if game_times >0:
 else:
     avg_times = 0
 
-print('%s 已经玩了 %d 次， 最少 %d 轮猜出答案， 平均 %.2f 轮猜出答案' % (name, game_times, min_times, avg_times))
+print('你已经玩了 %d 次， 最少 %d 轮猜出答案， 平均 %.2f 轮猜出答案' % (game_times, min_times, avg_times))
 
 num = randint(1, 100)
 print('Guess what i think?')
@@ -51,13 +42,7 @@ if game_times == 0 or times < min_times:
 total_times += times    # 总游戏轮数增加
 game_times += 1         # 游戏次数增加
 
-scores[name] = [str(game_times), str(min_times), str(total_times)]
-result = ''
-
-for n in scores:
-    line = n + ' ' + ' '.join(scores[n]) + '\n'
-    result += line
-
+result = '%d %d %d' % (game_times, min_times, total_times)
 f = open('game.txt', 'w')
 f.write(result)
 f.close()
