@@ -200,3 +200,51 @@ python study online
 
         def print(name = 'world'):
             print('hello, ' + name)
+
+
+10. 类
+
+    1. 空的类
+
+        class Person:
+            pass
+
+    2. 
+
+        class Person:
+
+            name = 'k'
+
+            def sayHi(self):
+                print('hello %s' % self.name)
+
+    3. 参数
+
+        class Person:
+            def __init__(self, name):
+                self.name = name
+            
+            def hello(self):
+                print(self.name)
+
+        name = Person('t')
+        name.hello()
+
+11. 元祖
+
+    1. 基础 ( 元组中的元素在创建之后就不能被修改。 )
+
+        tuple(1, 2)
+
+    2. 使用
+
+        def get_pos(n):
+            return (n/2, n*2)
+
+        # 1
+        x, y = get_pos(50)
+        print(x + " " + y)
+        # 2
+        pos = get_pos(50)
+        print pos[0]
+        print pos[1]
