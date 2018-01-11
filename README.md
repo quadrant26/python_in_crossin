@@ -187,3 +187,16 @@ python study online
     为了便于理解和避免冲突，你还可以给引入的方法换个名字
 
         from math import pi as math_pi
+
+
+9. 函数
+
+    1. 默认参数
+        
+        函数有多个参数时，如果你想给部分参数提供默认参数，那么这些参数必须在参数的末尾
+
+        def func(a, b=5):
+            print(a+b)
+
+        def print(name = 'world'):
+            print('hello, ' + name)
