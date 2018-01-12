@@ -248,3 +248,77 @@ python study online
         pos = get_pos(50)
         print pos[0]
         print pos[1]
+
+12. pickle
+
+    1. 存储文件 ( python3 下 pickle 以 2 进制的格式存储和读取文件内容 )
+        
+        f = open('file', 'wb')
+        pickle.dump(data, f)
+        f.close()
+
+    2. 读取文件
+
+        f = open('file', 'rb')
+        data = pickle.load(f)
+        print(data)
+        f.close()
+
+13. 函数的参数传递
+
+    1. 默认值
+
+        def hell0(a=1, b=2):
+            print(a, b)
+
+    2. *args (tuple)
+
+        def hello(*args):
+            print(args) # tuple
+
+    3. **kargs (dict)
+
+        def hello(**kargs):
+        print(kargs)
+
+    tips
+
+        在混合使用时，首先要注意函数的写法，必须遵守：
+            带有默认值的形参(arg=)须在无默认值的形参(arg)之后；
+            元组参数(*args)须在带有默认值的形参(arg=)之后；
+            字典参数(**kargs)须在元组参数(*args)之后。
+        
+        调用时也需要遵守：
+            指定参数名称的参数要在无指定参数名称的参数之后；
+            不可以重复传递，即按顺序提供某参数之后，又指定名称传递。
+
+        1.按顺序把无指定参数的实参赋值给形参；
+        2.把指定参数名称(arg=v)的实参赋值给对应的形参；
+        3.将多余的无指定参数的实参打包成一个 tuple 传递给元组参数(*args)；
+        4.将多余的指定参数名的实参打包成一个 dict 传递给字典参数(**kargs)。
+
+    4. lambda
+
+        lambda 参数列表: 表达式
+
+14 方法
+
+    1. map
+
+        map(function, list or tuple)
+
+    2. reduce
+
+        在Python 3里,reduce()函数已经被从全局名字空间里移除了,它现在被放置在fucntools模块里 用的话要 先引入：
+        
+        from functools import reduce 
+        reduce(lambda x, y: x+y, list or tuple)
+
+15. 多线程
+    
+    thread 
+
+        start_new_thread(function, args[, kwargs])
+            function 是开发者定义的线程函数，
+            args 是传递给线程函数的参数，必须是tuple类型，
+            kwargs 是可选参数。
